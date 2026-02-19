@@ -1,0 +1,36 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+} */
+
+/* Ensures ALL content is centered and responsive */
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-mid: #f7fafe;
+  --bg-gradient-end: #eef6ff;
+}
+
+.dark {
+  --bg-gradient-start: #1f2937; /* dark gray */
+  --bg-gradient-mid: #374151;   /* medium gray */
+  --bg-gradient-end: #4b5563;   /* lighter gray for gradient */
+}

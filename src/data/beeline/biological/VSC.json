@@ -1,0 +1,17 @@
+[
+  { "source": "Nkx22", "target": "Pax6", "type": "repression" },
+  { "source": "Nkx61", "target": "Nkx62", "type": "repression" },
+  { "source": "Dbx1", "target": "Nkx62", "type": "repression" },
+  { "source": "Irx3", "target": "Olig2", "type": "repression" },
+  { "source": "Nkx22", "target": "Olig2", "type": "repression" },
+  { "source": "Nkx62", "target": "Dbx1", "type": "repression" },
+  { "source": "Nkx61", "target": "Dbx1", "type": "repression" },
+  { "source": "Nkx61", "target": "Dbx2", "type": "repression" },
+  { "source": "Olig2", "target": "Dbx2", "type": "repression" },
+  { "source": "Nkx22", "target": "Dbx2", "type": "repression" },
+  { "source": "Dbx2", "target": "Nkx61", "type": "repression" },
+  { "source": "Pax6", "target": "Nkx22", "type": "repression" },
+  { "source": "Dbx2", "target": "Nkx22", "type": "repression" },
+  { "source": "Olig2", "target": "Irx3", "type": "repression" },
+  { "source": "Nkx22", "target": "Irx3", "type": "repression" }
+]

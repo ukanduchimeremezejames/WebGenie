@@ -1,0 +1,14 @@
+[
+  { "source": "g4", "target": "g1", "type": "repression" },
+  { "source": "g6", "target": "g1", "type": "repression" },
+  { "source": "g3", "target": "g4", "type": "activation" },
+  { "source": "g4", "target": "g4", "type": "activation" },
+  { "source": "g6", "target": "g4", "type": "repression" },
+  { "source": "g2", "target": "g3", "type": "activation" },
+  { "source": "g4", "target": "g8", "type": "repression" },
+  { "source": "g4", "target": "g7", "type": "activation" },
+  { "source": "g1", "target": "g2", "type": "activation" },
+  { "source": "g6", "target": "g6", "type": "activation" },
+  { "source": "g3", "target": "g6", "type": "activation" },
+  { "source": "g4", "target": "g6", "type": "repression" }
+]

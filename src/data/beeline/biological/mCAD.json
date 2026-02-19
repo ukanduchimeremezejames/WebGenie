@@ -1,0 +1,16 @@
+[
+  { "source": "Sp8", "target": "Pax6", "type": "activation" },
+  { "source": "Emx2", "target": "Pax6", "type": "repression" },
+  { "source": "Coup", "target": "Pax6", "type": "repression" },
+  { "source": "Fgf8", "target": "Sp8", "type": "activation" },
+  { "source": "Emx2", "target": "Sp8", "type": "repression" },
+  { "source": "Coup", "target": "Emx2", "type": "activation" },
+  { "source": "Fgf8", "target": "Emx2", "type": "repression" },
+  { "source": "Pax6", "target": "Emx2", "type": "repression" },
+  { "source": "Sp8", "target": "Emx2", "type": "repression" },
+  { "source": "Fgf8", "target": "Coup", "type": "repression" },
+  { "source": "Sp8", "target": "Coup", "type": "repression" },
+  { "source": "Fgf8", "target": "Fgf8", "type": "activation" },
+  { "source": "Sp8", "target": "Fgf8", "type": "activation" },
+  { "source": "Emx2", "target": "Fgf8", "type": "repression" }
+]

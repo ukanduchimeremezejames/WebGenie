@@ -1,0 +1,105 @@
+[
+  {
+    "edge_id": "SOX2__NANOG",
+    "source": "SOX2",
+    "target": "NANOG",
+    "supporting_algorithms": ["GENIE3", "GRNBoost2", "SCODE"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.84,
+      "GRNBoost2": 0.81,
+      "SCODE": 0.79
+    },
+    "support_count": 3,
+    "consensus_score": 0.813
+  },
+  {
+    "edge_id": "SOX2__OCT4",
+    "source": "SOX2",
+    "target": "OCT4",
+    "supporting_algorithms": ["GENIE3", "SCENIC", "GRISLI"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.86,
+      "SCENIC": 0.82,
+      "GRISLI": 0.80
+    },
+    "support_count": 3,
+    "consensus_score": 0.827
+  },
+  {
+    "edge_id": "OCT4__NANOG",
+    "source": "OCT4",
+    "target": "NANOG",
+    "supporting_algorithms": ["GENIE3", "GRNBoost2", "PIDC", "SCODE"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.83,
+      "GRNBoost2": 0.80,
+      "PIDC": 0.76,
+      "SCODE": 0.78
+    },
+    "support_count": 4,
+    "consensus_score": 0.793
+  },
+  {
+    "edge_id": "KLF4__SOX2",
+    "source": "KLF4",
+    "target": "SOX2",
+    "supporting_algorithms": ["GENIE3", "SCENIC"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.77,
+      "SCENIC": 0.74
+    },
+    "support_count": 2,
+    "consensus_score": 0.755
+  },
+  {
+    "edge_id": "MYC__SOX2",
+    "source": "MYC",
+    "target": "SOX2",
+    "supporting_algorithms": ["GRNBoost2", "GRISLI", "SINCERITIES"],
+    "scores_by_algorithm": {
+      "GRNBoost2": 0.75,
+      "GRISLI": 0.72,
+      "SINCERITIES": 0.70
+    },
+    "support_count": 3,
+    "consensus_score": 0.723
+  },
+  {
+    "edge_id": "MYC__OCT4",
+    "source": "MYC",
+    "target": "OCT4",
+    "supporting_algorithms": ["GENIE3", "GRNVBEM"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.74,
+      "GRNVBEM": 0.71
+    },
+    "support_count": 2,
+    "consensus_score": 0.725
+  },
+  {
+    "edge_id": "NANOG__KLF4",
+    "source": "NANOG",
+    "target": "KLF4",
+    "supporting_algorithms": ["GENIE3", "SCODE", "SCINGE"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.76,
+      "SCODE": 0.73,
+      "SCINGE": 0.75
+    },
+    "support_count": 3,
+    "consensus_score": 0.747
+  },
+  {
+    "edge_id": "OCT4__MYC",
+    "source": "OCT4",
+    "target": "MYC",
+    "supporting_algorithms": ["GENIE3", "GRNBoost2", "LEAP"],
+    "scores_by_algorithm": {
+      "GENIE3": 0.79,
+      "GRNBoost2": 0.76,
+      "LEAP": 0.74
+    },
+    "support_count": 3,
+    "consensus_score": 0.763
+  }
+]

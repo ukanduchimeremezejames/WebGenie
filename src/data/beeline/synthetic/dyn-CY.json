@@ -1,0 +1,8 @@
+[
+  { "source": "g1", "target": "g6", "type": "activation" },
+  { "source": "g5", "target": "g1", "type": "repression" },
+  { "source": "g4", "target": "g5", "type": "activation" },
+  { "source": "g2", "target": "g3", "type": "repression" },
+  { "source": "g1", "target": "g2", "type": "repression" },
+  { "source": "g3", "target": "g4", "type": "activation" }
+]

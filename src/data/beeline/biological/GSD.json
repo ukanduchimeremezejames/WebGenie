@@ -1,0 +1,99 @@
+[
+  { "source": "SOX9", "target": "AMH", "type": "activation" },
+  { "source": "GATA4", "target": "AMH", "type": "activation" },
+  { "source": "NR5A1", "target": "AMH", "type": "activation" },
+  { "source": "WT1mKTS", "target": "AMH", "type": "activation" },
+  { "source": "NR0B1", "target": "AMH", "type": "repression" },
+  { "source": "CTNNB1", "target": "AMH", "type": "repression" },
+
+  { "source": "SRY", "target": "DMRT1", "type": "activation" },
+  { "source": "SOX9", "target": "DMRT1", "type": "activation" },
+  { "source": "FOXL2", "target": "DMRT1", "type": "repression" },
+
+  { "source": "SOX9", "target": "PGD2", "type": "activation" },
+
+  { "source": "SOX9", "target": "SOX9", "type": "activation" },
+  { "source": "FGF9", "target": "SOX9", "type": "activation" },
+  { "source": "SRY", "target": "SOX9", "type": "activation" },
+  { "source": "PGD2", "target": "SOX9", "type": "activation" },
+  { "source": "CBX2", "target": "SOX9", "type": "activation" },
+  { "source": "GATA4", "target": "SOX9", "type": "activation" },
+  { "source": "NR5A1", "target": "SOX9", "type": "activation" },
+  { "source": "WNT4", "target": "SOX9", "type": "repression" },
+  { "source": "CTNNB1", "target": "SOX9", "type": "repression" },
+  { "source": "FOXL2", "target": "SOX9", "type": "repression" },
+
+  { "source": "UGR", "target": "CBX2", "type": "activation" },
+  { "source": "NR0B1", "target": "CBX2", "type": "repression" },
+  { "source": "WNT4", "target": "CBX2", "type": "repression" },
+  { "source": "CTNNB1", "target": "CBX2", "type": "repression" },
+
+  { "source": "WT1mKTS", "target": "NR0B1", "type": "activation" },
+  { "source": "WNT4", "target": "NR0B1", "type": "activation" },
+  { "source": "CTNNB1", "target": "NR0B1", "type": "activation" },
+  { "source": "NR5A1", "target": "NR0B1", "type": "repression" },
+  { "source": "SOX9", "target": "NR0B1", "type": "repression" },
+
+  { "source": "UGR", "target": "WT1mKTS", "type": "activation" },
+  { "source": "GATA4", "target": "WT1mKTS", "type": "activation" },
+
+  { "source": "SRY", "target": "DKK1", "type": "activation" },
+  { "source": "SOX9", "target": "DKK1", "type": "activation" },
+
+  { "source": "UGR", "target": "NR5A1", "type": "activation" },
+  { "source": "CBX2", "target": "NR5A1", "type": "activation" },
+  { "source": "WT1mKTS", "target": "NR5A1", "type": "activation" },
+  { "source": "GATA4", "target": "NR5A1", "type": "activation" },
+  { "source": "NR0B1", "target": "NR5A1", "type": "repression" },
+  { "source": "WNT4", "target": "NR5A1", "type": "repression" },
+
+  { "source": "UGR", "target": "UGR", "type": "activation" },
+  { "source": "NR5A1", "target": "UGR", "type": "repression" },
+  { "source": "WNT4", "target": "UGR", "type": "repression" },
+
+  { "source": "UGR", "target": "GATA4", "type": "activation" },
+  { "source": "WNT4", "target": "GATA4", "type": "activation" },
+  { "source": "NR5A1", "target": "GATA4", "type": "activation" },
+  { "source": "SRY", "target": "GATA4", "type": "activation" },
+
+  { "source": "SOX9", "target": "FGF9", "type": "activation" },
+  { "source": "WNT4", "target": "FGF9", "type": "repression" },
+
+  { "source": "WNT4", "target": "FOXL2", "type": "activation" },
+  { "source": "CTNNB1", "target": "FOXL2", "type": "activation" },
+  { "source": "DMRT1", "target": "FOXL2", "type": "repression" },
+  { "source": "SOX9", "target": "FOXL2", "type": "repression" },
+
+  { "source": "SOX9", "target": "DHH", "type": "activation" },
+
+  { "source": "UGR", "target": "WT1pKTS", "type": "activation" },
+  { "source": "GATA4", "target": "WT1pKTS", "type": "activation" },
+  { "source": "WNT4", "target": "WT1pKTS", "type": "repression" },
+  { "source": "CTNNB1", "target": "WT1pKTS", "type": "repression" },
+
+  { "source": "WNT4", "target": "CTNNB1", "type": "activation" },
+  { "source": "RSPO1", "target": "CTNNB1", "type": "activation" },
+  { "source": "SRY", "target": "CTNNB1", "type": "repression" },
+  { "source": "SOX9", "target": "CTNNB1", "type": "repression" },
+  { "source": "AMH", "target": "CTNNB1", "type": "repression" },
+
+  { "source": "NR5A1", "target": "SRY", "type": "activation" },
+  { "source": "WT1mKTS", "target": "SRY", "type": "activation" },
+  { "source": "CBX2", "target": "SRY", "type": "activation" },
+  { "source": "GATA4", "target": "SRY", "type": "activation" },
+  { "source": "WT1pKTS", "target": "SRY", "type": "activation" },
+  { "source": "SOX9", "target": "SRY", "type": "activation" },
+  { "source": "SRY", "target": "SRY", "type": "activation" },
+  { "source": "CTNNB1", "target": "SRY", "type": "repression" },
+
+  { "source": "WNT4", "target": "RSPO1", "type": "activation" },
+  { "source": "CTNNB1", "target": "RSPO1", "type": "activation" },
+  { "source": "DKK1", "target": "RSPO1", "type": "repression" },
+
+  { "source": "GATA4", "target": "WNT4", "type": "activation" },
+  { "source": "CTNNB1", "target": "WNT4", "type": "activation" },
+  { "source": "RSPO1", "target": "WNT4", "type": "activation" },
+  { "source": "NR0B1", "target": "WNT4", "type": "activation" },
+  { "source": "FGF9", "target": "WNT4", "type": "repression" },
+  { "source": "DKK1", "target": "WNT4", "type": "repression" }
+]
