@@ -133,7 +133,7 @@ export function DatasetDetailModal({
               {[
                 'GENE1 → GENE2 (Activation)',
                 'GENE2 → GENE3 (Repression)',
-                'GENE3 → GENE4 (Unknown)',
+                // 'GENE3 → GENE4 (Unknown)',
               ].map((edge, i) => (
                 <div
                   key={i}
@@ -141,7 +141,7 @@ export function DatasetDetailModal({
                 >
                   <span className="text-foreground">{edge.split(' ')[0]}</span>
                   <span className="text-foreground">{edge.split(' ')[2]}</span>
-                  <span className="text-foreground">{edge.split(' ')[3]}</span>
+                  {/* <span className="text-foreground">{edge.split(' ')[3]}</span> */}
                 </div>
               ))}
 
@@ -175,7 +175,7 @@ export function DatasetDetailModal({
 
             >
               <Download className="w-4 h-4" />
-              <a href='https://huggingface.co/cskokgibbs/datasets'>Download Dataset</a>
+              <a href='https://zenodo.org/records/3701939'>Download Dataset</a>
             </Button>
           </div>
         </div>
