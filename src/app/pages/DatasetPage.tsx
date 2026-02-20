@@ -19,581 +19,6 @@ import {
   ResponsiveContainer, PieChart, Pie, Cell 
 } from 'recharts';
 
-// import { allDatasets } from '../data/datasets'; // <-- ensure correct path
-
-// const allDatasets = [
-//   {
-//     id: 'hESC',
-//     name: 'hESC',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 1872,
-//     cells: 758,
-//     edges: 3289,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-11-15',
-//     sparklineData: [34, 45, 52, 48, 61, 73, 68, 82, 91, 78]
-//   },
-//   {
-//     id: 'mDC',
-//     name: 'mDC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1547,
-//     cells: 383,
-//     edges: 2456,
-//     source: 'real' as const,
-//     lastUpdated: '2024-10-28',
-//     sparklineData: [28, 31, 39, 42, 38, 51, 58, 64, 59, 71]
-//   },
-//   {
-//     id: 'mESC',
-//     name: 'mESC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1654,
-//     cells: 421,
-//     edges: 2891,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-11-08',
-//     sparklineData: [22, 35, 41, 48, 44, 59, 62, 71, 68, 75]
-//   },
-//   {
-//     id: 'hHep',
-//     name: 'hHep',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 1985,
-//     cells: 642,
-//     edges: 3567,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-09-22',
-//     sparklineData: [31, 38, 42, 49, 55, 62, 58, 69, 77, 82]
-//   },
-//   {
-//     id: 'VSC',
-//     name: 'VSC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1432,
-//     cells: 564,
-//     edges: 2234,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-10-12',
-//     sparklineData: [19, 28, 34, 41, 48, 52, 59, 65, 71, 68]
-//   },
-//   {
-//     id: 'hHSPC',
-//     name: 'hHSPC',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 2145,
-//     cells: 823,
-//     edges: 4156,
-//     source: 'real' as const,
-//     lastUpdated: '2024-09-05',
-//     sparklineData: [42, 51, 58, 62, 69, 75, 81, 88, 92, 89]
-//   },
-//   {
-//     id: 'mHSC-E',
-//     name: 'mHSC-E',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1789,
-//     cells: 645,
-//     edges: 3012,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-11-01',
-//     sparklineData: [25, 33, 39, 46, 53, 61, 68, 74, 79, 85]
-//   },
-//   {
-//     id: 'mHSC-L',
-//     name: 'mHSC-L',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1823,
-//     cells: 712,
-//     edges: 3178,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-10-29',
-//     sparklineData: [28, 36, 43, 49, 56, 64, 71, 77, 82, 88]
-//   },
-//   {
-//     id: 'Synthetic-1',
-//     name: 'Synthetic-1',
-//     organism: 'Synthetic',
-//     type: 'scRNA-seq',
-//     genes: 1500,
-//     cells: 500,
-//     edges: 2500,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-08-15',
-//     sparklineData: [30, 35, 40, 45, 50, 55, 60, 65, 70, 75]
-//   },
-//   {
-//     id: 'Synthetic-2',
-//     name: 'Synthetic-2',
-//     organism: 'Synthetic',
-//     type: 'scRNA-seq',
-//     genes: 2000,
-//     cells: 750,
-//     edges: 3500,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-08-20',
-//     sparklineData: [35, 40, 45, 50, 55, 60, 65, 70, 75, 80]
-//   },
-//   {
-//     id: 'yeast-1',
-//     name: 'Yeast Network 1',
-//     organism: 'Yeast',
-//     type: 'Bulk RNA-seq',
-//     genes: 987,
-//     cells: 234,
-//     edges: 1456,
-//     source: 'real' as const,
-//     lastUpdated: '2024-07-10',
-//     sparklineData: [18, 24, 31, 37, 44, 51, 57, 63, 68, 72]
-//   },
-//   {
-//     id: 'yeast-2',
-//     name: 'Yeast Network 2',
-//     organism: 'Yeast',
-//     type: 'Bulk RNA-seq',
-//     genes: 1123,
-//     cells: 298,
-//     edges: 1789,
-//     source: 'real' as const,
-//     lastUpdated: '2024-07-22',
-//     sparklineData: [21, 27, 34, 40, 47, 54, 60, 66, 71, 75]
-//   }
-// ];
-
-// const allDatasets = [
-//   {
-//     id: 'GSD',
-//     name: 'GSD',
-//     organism: 'Human',
-//     type: 'currated',
-//     genes: 1872,
-//     cells: 789,
-//     edges: 4728,
-//     source: 'real' as const,
-//     lastUpdated: '2024-11-15',
-//     sparklineData: [34, 45, 52, 48, 51, 73, 68, 32, 91, 78]
-//   },
-//   {
-//     id: 'HSC',
-//     name: 'HSC',
-//     organism: 'Mouse',
-//     type: 'curated',
-//     genes: 1726,
-//     cells: 895,
-//     edges: 2896,
-//     source: 'real' as const,
-//     lastUpdated: '2024-11-15',
-//     sparklineData: [31, 43, 51, 42, 51, 73, 68, 83, 91, 78]
-//   },  
-//   {
-//     id: 'mCAD',
-//     name: 'mCAD',
-//     organism: 'Mouse',
-//     type: 'curated',
-//     genes: 1872,
-//     cells: 758,
-//     edges: 3289,
-//     source: 'real' as const,
-//     lastUpdated: '2024-11-15',
-//     sparklineData: [34, 45, 52, 48, 61, 73, 68, 82, 43, 78]
-//   },
-//   {
-//     id: 'VSC',
-//     name: 'VSC',
-//     organism: 'Mouse',
-//     type: 'curated',
-//     genes: 1782,
-//     cells: 598,
-//     edges: 2989,
-//     source: 'real' as const,
-//     lastUpdated: '2024-11-15',
-//     sparklineData: [34, 45, 32, 48, 61, 73, 98, 82, 91, 78]
-//   },
-//   {
-//     id: 'hESC',
-//     name: 'hESC',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 1872,
-//     cells: 758,
-//     edges: 3289,
-//     source: 'real' as const,
-//     lastUpdated: '2024-11-15',
-//     sparklineData: [34, 45, 52, 48, 61, 73, 68, 82, 91, 78]
-//   },
-//   {
-//     id: 'mDC',
-//     name: 'mDC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1547,
-//     cells: 383,
-//     edges: 2456,
-//     source: 'real' as const,
-//     lastUpdated: '2024-10-28',
-//     sparklineData: [28, 31, 39, 42, 38, 51, 58, 64, 59, 71]
-//   },
-//   {
-//     id: 'hHep',
-//     name: 'hHep',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 1985,
-//     cells: 642,
-//     edges: 3567,
-//     source: 'real' as const,
-//     lastUpdated: '2024-09-22',
-//     sparklineData: [31, 38, 42, 49, 55, 62, 58, 69, 77, 82]
-//   },
-//    {
-//     id: 'mESC',
-//     name: 'mESC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1362,
-//     cells: 536,
-//     edges: 2384,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-10-12',
-//     sparklineData: [19, 38, 24, 41, 48, 72, 59, 65, 71, 68]
-//   },
-//   {
-//   id: 'mHSC-E',
-//   name: 'mHSC-E',
-//   organism: 'Mouse',
-//   type: 'scRNA-seq',
-//   genes: 4762,                     
-//   cells: 645,                      
-//   edges: 2857,                     
-//   source: 'curated' as const,
-//   lastUpdated: '2024-11-01',
-//   sparklineData: [22, 30, 38, 45, 53, 60, 68, 74, 80, 86]
-// },
-//   {
-//     id: 'mHSC-GM',
-//     name: 'mHSC-GM',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 18895,
-//     cells: 635,
-//     edges: 3062,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-11-01',
-//     sparklineData: [24, 39, 43, 46, 53, 61, 68, 74, 78, 85]
-//   },
-//   {
-//     id: 'mHSC-L',
-//     name: 'mHSC-L',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1823,
-//     cells: 712,
-//     edges: 3178,
-//     source: 'curated' as const,
-//     lastUpdated: '2024-10-29',
-//     sparklineData: [28, 36, 43, 49, 56, 64, 71, 77, 82, 88]
-//   },
-//   {
-//     id: 'dyn-LL',
-//     name: 'Dynamic LL',
-//     organism: 'Mouse',
-//     type: 'synthetic',
-//     genes: 1234,
-//     cells: 456,
-//     edges: 1456,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-07-10',
-//     sparklineData: [18, 42, 31, 37, 44, 61, 57, 63, 68, 82]
-//   },
-//   {
-//     id: 'dyn-LI',
-//     name: 'Dynamic LI',
-//     organism: 'Mouse',
-//     type: 'synthetic',
-//     genes: 1123,
-//     cells: 298,
-//     edges: 1789,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-07-22',
-//     sparklineData: [21, 27, 34, 40, 47, 54, 60, 66, 71, 75]
-//   },
-//   {
-//     id: 'dyn-TF',
-//     name: 'Dynamic TF',
-//     organism: 'Mouse',
-//     type: 'synthetic',
-//     genes: 1302,
-//     cells: 319,
-//     edges: 1859,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-07-22',
-//     sparklineData: [21, 27, 34, 40, 37, 54, 60, 56, 71, 75]
-//   },
-//   {
-//     id: 'dyn-BF',
-//     name: 'Dynamic BF',
-//     organism: 'Mouse',
-//     type: 'synthetic',
-//     genes: 1500,
-//     cells: 500,
-//     edges: 2500,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-08-15',
-//     sparklineData: [20, 35, 40, 45, 50, 55, 40, 65, 70, 85]
-//   },
-//   {
-//     id: 'dyn-BFC',
-//     name: 'Dynamic BFC',
-//     organism: 'Mouse',
-//     type: 'synthetic',
-//     genes: 2000,
-//     cells: 750,
-//     edges: 3500,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-08-20',
-//     sparklineData: [35, 40, 45, 50, 55, 60, 65, 70, 75, 80]
-//   },
-//   {
-//     id: 'dyn-CY',
-//     name: 'Dynamic CY',
-//     organism: 'Mouse',
-//     type: 'synthetic',
-//     genes: 2145,
-//     cells: 645,
-//     edges: 3012,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2024-11-01',
-//     sparklineData: [22, 40, 38, 45, 53, 60, 78, 74, 80, 76]
-
-//   },
-// ];
-
-// const allDatasets = [
-//   // -------------------------
-//   // Curated Ground-Truth GRNs
-//   // -------------------------
-//   {
-//     id: 'GSD',
-//     name: 'GSD',
-//     organism: 'N/A',
-//     type: 'curated',
-//     genes: 18,
-//     cells: 120,
-//     edges: 79,
-//     source: 'real' as const,
-//     lastUpdated: '2020-03-27',
-//     sparklineData: [52, 38, 22, 25, 28, 30, 27, 24, 50, 16]
-//   },
-//   {
-//     id: 'HSC',
-//     name: 'HSC',
-//     organism: 'N/A',
-//     type: 'curated',
-//     genes: 11,
-//     cells: 110,
-//     edges: 30,
-//     source: 'real' as const,
-//     lastUpdated: '2020-05-14',
-//     sparklineData: [10, 55, 88, 70, 23, 55, 22, 49, 16, 84]
-//   },
-//   {
-//     id: 'mCAD',
-//     name: 'mCAD',
-//     organism: 'N/A',
-//     type: 'curated',
-//     genes: 5,
-//     cells: 100,
-//     edges: 14,
-//     source: 'real' as const,
-//     lastUpdated: '2021-01-11',
-//     sparklineData: [8, 11, 43, 35, 17, 78, 56, 54, 32, 70]
-//   },
-//   {
-//     id: 'VSC',
-//     name: 'VSC',
-//     organism: 'N/A',
-//     type: 'curated',
-//     genes: 8,
-//     cells: 115,
-//     edges: 15,
-//     source: 'real' as const,
-//     lastUpdated: '2021-04-02',
-//     sparklineData: [29, 14, 46, 19, 81, 23, 60, 18, 45, 73]
-//   },
-
-//   // -------------------------
-//   // Real scRNA-seq Datasets
-//   // -------------------------
-//   {
-//     id: 'hESC',
-//     name: 'hESC',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 1000,
-//     cells: 758,
-//     edges: 3200,
-//     source: 'real' as const,
-//     lastUpdated: '2020-09-18',
-//     sparklineData: [35, 42, 48, 51, 55, 61, 46, 70, 74, 79]
-//   },
-//   {
-//     id: 'hHep',
-//     name: 'hHep',
-//     organism: 'Human',
-//     type: 'scRNA-seq',
-//     genes: 950,
-//     cells: 642,
-//     edges: 2800,
-//     source: 'real' as const,
-//     lastUpdated: '2021-02-23',
-//     sparklineData: [30, 36, 41, 47, 52, 78, 63, 69, 84, 78]
-//   },
-//   {
-//     id: 'mDC',
-//     name: 'mDC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 900,
-//     cells: 383,
-//     edges: 2100,
-//     source: 'real' as const,
-//     lastUpdated: '2021-06-30',
-//     sparklineData: [22, 28, 73, 39, 64, 50, 55, 60, 74, 68]
-//   },
-//   {
-//     id: 'mESC',
-//     name: 'mESC',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1100,
-//     cells: 536,
-//     edges: 3400,
-//     source: 'real' as const,
-//     lastUpdated: '2022-01-19',
-//     sparklineData: [25, 32, 38, 54, 49, 35, 61, 76, 62, 77]
-//   },
-//   {
-//     id: 'mHSC-E',
-//     name: 'mHSC-E',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1050,
-//     cells: 645,
-//     edges: 3100,
-//     source: 'real' as const,
-//     lastUpdated: '2022-03-07',
-//     sparklineData: [27, 34, 50, 46, 52, 59, 65, 70, 66, 81]
-//   },
-//   {
-//     id: 'mHSC-GM',
-//     name: 'mHSC-GM',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 1200,
-//     cells: 635,
-//     edges: 3600,
-//     source: 'real' as const,
-//     lastUpdated: '2022-06-12',
-//     sparklineData: [29, 36, 42, 48, 54, 71, 67, 73, 79, 84]
-//   },
-//   {
-//     id: 'mHSC-L',
-//     name: 'mHSC-L',
-//     organism: 'Mouse',
-//     type: 'scRNA-seq',
-//     genes: 980,
-//     cells: 712,
-//     edges: 2950,
-//     source: 'real' as const,
-//     lastUpdated: '2022-08-25',
-//     sparklineData: [26, 33, 39, 45, 61, 57, 63, 59, 74, 80]
-//   },
-
-//   // -------------------------
-//   // Synthetic Dynamic Networks
-//   // -------------------------
-//   {
-//     id: 'dyn-LL',
-//     name: 'Dynamic LL',
-//     organism: 'N/A',
-//     type: 'synthetic',
-//     genes: 18,
-//     cells: 140,
-//     edges: 19,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2020-07-09',
-//     sparklineData: [22, 16, 49, 23, 26, 49, 25, 21, 18, 35]
-//   },
-//   {
-//     id: 'dyn-LI',
-//     name: 'Dynamic LI',
-//     organism: 'N/A',
-//     type: 'synthetic',
-//     genes: 7,
-//     cells: 115,
-//     edges: 8,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2020-10-21',
-//     sparklineData: [29, 12, 14, 26, 18, 20, 27, 35, 13, 21]
-//   },
-//   {
-//     id: 'dyn-TF',
-//     name: 'Dynamic TF',
-//     organism: 'N/A',
-//     type: 'synthetic',
-//     genes: 7,
-//     cells: 118,
-//     edges: 20,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2021-03-16',
-//     sparklineData: [30, 44, 57, 20, 23, 46, 22, 39, 16, 23]
-//   },
-//   {
-//     id: 'dyn-BF',
-//     name: 'Dynamic BF',
-//     organism: 'N/A',
-//     type: 'synthetic',
-//     genes: 5,
-//     cells: 105,
-//     edges: 12,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2021-09-28',
-//     sparklineData: [28, 31, 33, 45, 28, 30, 27, 34, 12, 29]
-//   },
-//   {
-//     id: 'dyn-BFC',
-//     name: 'Dynamic BFC',
-//     organism: 'N/A',
-//     type: 'synthetic',
-//     genes: 9,
-//     cells: 125,
-//     edges: 18,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2022-02-14',
-//     sparklineData: [21, 15, 38, 22, 25, 38, 24, 20, 27, 44]
-//   },
-//   {
-//     id: 'dyn-CY',
-//     name: 'Dynamic CY',
-//     organism: 'N/A',
-//     type: 'synthetic',
-//     genes: 5,
-//     cells: 110,
-//     edges: 6,
-//     source: 'synthetic' as const,
-//     lastUpdated: '2022-11-03',
-//     sparklineData: [37, 20, 12, 44, 16, 28, 15, 33, 10, 28]
-//   },
-// ];
-
 const allDatasets = [
   // -------------------------
   // Curated Ground-Truth GRNs
@@ -882,11 +307,6 @@ function generateExpressionDistribution(genes: number) {
   return bins;
 }
 
-
-// const dynamicGeneDist = generateExpressionDistribution(ds.genes);
-
-
-
 export function DatasetPage() {
 
   // 1️⃣ ALL HOOKS FIRST
@@ -901,13 +321,6 @@ export function DatasetPage() {
   const [showResult, setShowResult] = useState(false);
   const [selectedAlgorithms, setSelectedAlgorithms] = useState<string[]>([]);
 
-  // const [step, setStep] = useState<PopupStep>("summary");
-  // return null;
-  // const location = useLocation();
-  // const navigate = useNavigate();
-
-  // Extract dataset ID dynamically
-  // const datasetId = location.pathname.substring(9);       // "/dataset/<id>"
   const datasetId = location.pathname.substring(9);       // "/dataset/<id>"
   const ds = allDatasets.find(d => d.id === datasetId);   // Resolve dataset
 
@@ -947,27 +360,6 @@ export function DatasetPage() {
 // const API_BASE = "https://huggingface.co/Ukandu/webgenie_api";
 const API_BASE = "https://ukandu-webgenie-api.hf.space/";
 
-// try {
-//   const res = await fetch(`${API_BASE}/runs/${runId}/metrics`);
-//   if (!res.ok) throw new Error("API down");
-//   const data = await res.json();
-//   setMetrics(data);
-// } catch {
-//   // 🔥 FALLBACK
-//   const fallback = generateDeterministicMetrics(datasetId);
-//   setMetrics(fallback);
-// }
-
-
-
-// const [runId, setRunId] = useState<string | null>(null);
-// const [isRunning, setIsRunning] = useState(false);
-// const [taskId, setTaskId] = useState<string | null>(null);
-// const [progress, setProgress] = useState<number>(0);
-// const [runResult, setRunResult] = useState<any | null>(null);
-// const [showResult, setShowResult] = useState(false);
-// const [algorithm, setAlgorithm] = useState("GENIE3");
-// const [metrics, setMetrics] = useState<any>(null);
 const [selectedDataset, setSelectedDataset] = useState(datasetId);
 // const [selectedAlgorithms, setSelectedAlgorithms] = useState<string[]>([]);
 
@@ -1036,221 +428,11 @@ const runBenchmark = async () => {
 };
 
 
-
-
-// POLLING INTERVAL
-const POLL_INTERVAL = 1500;
-
-// ---------------- Start Benchmark + Receive Celery Task ID ----------------
-// async function handleRunBenchmark() {
-//   setIsRunning(true);
-//   setProgress(0);
-//   setRunResult(null);
-//   setTaskId(null);
-
-//   try {
-//     const res = await fetch(`${API_BASE}/benchmark/run`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ dataset_id: datasetId }),
-//     });
-
-//     const data = await res.json();
-//     setTaskId(data.task_id);
-
-//     pollTaskStatus(data.task_id);
-//   } catch (err) {
-//     alert("Failed to start benchmark.");
-//     setIsRunning(false);
-//   }
-// }
-
-// async function handleRunBenchmark() {
-//   setIsRunning(true);
-//   setProgress(10);
-
-//   try {
-//     // const res = await fetch(`${API_BASE}/runs`, {
-//     //   method: "POST",
-//     //   headers: { "Content-Type": "application/json" },
-//     //   body: JSON.stringify({
-//     //     dataset_id: datasetId,
-//     //     algorithms: ["GENIE3"],
-//     //     // algorithms: [algorithm]
-//     //     params: {}
-//     //   }),
-//     // });
-
-//     async function pollTaskStatus(runId: string) {
-//   const interval = setInterval(async () => {
-//     const res = await fetch(`${API_BASE}/runs/${runId}`);
-//     const data = await res.json();
-
-//     setProgress(data.progress);
-
-//     if (data.status === "completed") {
-//       clearInterval(interval);
-//       const metrics = await fetch(`${API_BASE}/runs/${runId}/metrics`);
-//       setRunResult(await metrics.json());
-//       setShowResult(true);
-//       setIsRunning(false);
-//     }
-//   }, 1500);
-// }
-
-//     const data = await res.json();
-//     setTaskId(data.run_id);
-//     pollTaskStatus(data.run_id);
-//     } catch (err: any) {
-//     console.error("Run error:", err.message);
-//     alert(`Failed to start run:\n${err.message}`);
-//     setIsRunning(false);
-//   }
-
-// }
-
-// async function handleRunBenchmark() {
-//   setIsRunning(true);
-//   setProgress(5);
-//   setRunResult(null);
-//   setTaskId(null);
-
-//   try {
-//     const response = await fetch(`${API_BASE}/runs`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({
-//         dataset_id: datasetId,
-//         algorithms: ["GENIE3"],
-//         params: {}
-//       }),
-//     });
-
-//     if (!response.ok) {
-//       const text = await response.text();
-//       throw new Error(text);
-//     }
-
-//     const data = await response.json();
-
-//     setTaskId(data.run_id);
-//     pollTaskStatus(data.run_id);
-
-//   } catch (err: any) {
-//     console.error("Run start error:", err);
-//     alert(`Failed to start run:\n${err.message || err}`);
-//     setIsRunning(false);
-//   }
-// }
-
-// async function runBenchmark() {
-//   const [runId, setRunId] = useState<string | null>(null);
-//   const [progress, setProgress] = useState<number>(0);
-//   const [metrics, setMetrics] = useState<any>(null);
-//   const [isRunning, setIsRunning] = useState(false);
-
-//   const res = await fetch(`${API_BASE}/runs`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       dataset_id: selectedDataset,
-//       algorithms: selectedAlgorithms, // must be array
-//       params: {},
-//     }),
-//   });
-
-//   if (!res.ok) {
-//     throw new Error("Failed to start run");
-//   }
-
-//   const data = await res.json();
-//   setRunId(data.run_id);
-// }
-// async function fetchMetrics(runId: string) {
-//   const res = await fetch(`${API_BASE}/runs/${runId}/metrics`);
-//   if (!res.ok) throw new Error("Failed to fetch metrics");
-//   const data = await res.json();
-//   setMetrics(data);
-// }
-
 const fetchMetrics = async (runId: string) => {
   const res = await fetch(`${API_BASE}/runs/${runId}/metrics`);
   const data = await res.json();
   setMetrics(data);
 };
-
-
-// async function runBenchmark() {
-//   try {
-//     setIsRunning(true);
-//     setProgress(0);
-
-//     const res = await fetch(`${API_BASE}/runs`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         dataset_id: selectedDataset,
-//         algorithms: selectedAlgorithms, // MUST be array
-//         params: {},
-//       }),
-//     });
-
-//     if (!res.ok) {
-//       throw new Error("Failed to start run");
-//     }
-
-//     const data = await res.json();
-//     setRunId(data.run_id); // ✅ NOW EXISTS
-//   } catch (err) {
-//     console.error(err);
-//     setIsRunning(false);
-//   }
-// }
-
-// useEffect(() => {
-//   if (!runId) return;
-
-//   const interval = setInterval(async () => {
-//     try {
-//       const res = await fetch(`${API_BASE}/runs/${runId}`);
-//       const data = await res.json();
-
-//       setProgress(data.progress);
-
-//       if (data.status === "completed") {
-//         clearInterval(interval);
-//         fetchMetrics(runId);
-//         setIsRunning(false);
-//       }
-//     } catch (err) {
-//       console.error("Polling failed", err);
-//     }
-//   }, 2500);
-
-//   return () => clearInterval(interval);
-// }, [runId]);
-
-// const runBenchmark = async () => {
-//   setIsRunning(true);
-//   setProgress(0);
-
-//   const res = await fetch(`${API_BASE}/runs`, {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       dataset_id: selectedDataset,
-//       algorithms: selectedAlgorithms
-//     })
-//   });
-
-//   const data = await res.json();
-//   setRunId(data.run_id);
-// };
-
 
 useEffect(() => {
   if (!runId || !isRunning) return;
@@ -1293,125 +475,93 @@ async function pollTaskStatus(runId: string) {
   }, 1500);
 }
 
-
-// ---------------- POLL CELERY TASK STATUS ----------------
-// async function pollTaskStatus(taskId: string) {
-//   const interval = setInterval(async () => {
-//     try {
-//       const res = await fetch(`${API_BASE}/benchmark/status/${taskId}`);
-//       const data = await res.json();
-
-//       setProgress(data.progress ?? 0);
-
-//       // DONE
-//       if (data.state === "SUCCESS") {
-//         clearInterval(interval);
-//         setRunResult(data.result);
-//         setShowResult(true);
-//         setIsRunning(false);
-//       }
-
-//       // ERROR
-//       if (data.state === "FAILURE") {
-//         clearInterval(interval);
-//         alert("Benchmark failed.");
-//         setIsRunning(false);
-//       }
-//     } catch (err) {
-//       clearInterval(interval);
-//       setIsRunning(false);
-//     }
-//   }, POLL_INTERVAL);
-// }
-
-
 // ---------------- Download Ground Truth ----------------
-function handleDownloadGroundTruth() {
-  // --- realistic synthetic ground truth ---
-  const numEdges = Math.min(ds.edges, 5000); // cap to avoid massive files
-  const numGenes = ds.genes;
+// function handleDownloadGroundTruth() {
+//   // --- realistic synthetic ground truth ---
+//   const numEdges = Math.min(ds.edges, 5000); // cap to avoid massive files
+//   const numGenes = ds.genes;
 
-  const rows: string[] = [];
-  rows.push("source,target,weight"); // CSV header
+//   const rows: string[] = [];
+//   rows.push("source,target,weight"); // CSV header
 
-  for (let i = 0; i < numEdges; i++) {
-    const source = `Gene_${Math.floor(Math.random() * numGenes) + 1}`;
-    const target = `Gene_${Math.floor(Math.random() * numGenes) + 1}`;
-    const weight = (Math.random() * 0.9 + 0.1).toFixed(4); // realistic edge weight
+//   for (let i = 0; i < numEdges; i++) {
+//     const source = `Gene_${Math.floor(Math.random() * numGenes) + 1}`;
+//     const target = `Gene_${Math.floor(Math.random() * numGenes) + 1}`;
+//     const weight = (Math.random() * 0.9 + 0.1).toFixed(4); // realistic edge weight
 
-    rows.push(`${source},${target},${weight}`);
-  }
+//     rows.push(`${source},${target},${weight}`);
+//   }
 
-  const csvContent = rows.join("\n");
+//   const csvContent = rows.join("\n");
 
-  // --- trigger download ---
-  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
+//   // --- trigger download ---
+//   const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+//   const url = URL.createObjectURL(blob);
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${ds.name}_ground_truth.csv`;
-  a.click();
+//   const a = document.createElement("a");
+//   a.href = url;
+//   a.download = `${ds.name}_ground_truth.csv`;
+//   a.click();
 
-  URL.revokeObjectURL(url);
-}
-
+//   URL.revokeObjectURL(url);
+// }
 
 // async function handleDownloadGroundTruth() {
-//   try {
-//     const res = await fetch(`${API_BASE}/datasets/${datasetId}/ground-truth`, {
-//       method: "GET",
-//     });
+//   const fileName = `${ds.name}_ground-truth.csv`;
+//   const filePath = `/ground-truth/${fileName}`;
 
-//     if (!res.ok) {
-//       alert("Failed to download ground truth.");
-//       return;
+//   try {
+//     const response = await fetch(filePath, { method: "HEAD" });
+
+//     if (!response.ok) {
+//       throw new Error("Ground truth file not found");
 //     }
 
-//     // Get filename from headers or fallback
-//     const blob = await res.blob();
-//     const url = window.URL.createObjectURL(blob);
 //     const a = document.createElement("a");
-
-//     const contentDisp = res.headers.get("Content-Disposition");
-//     const fileName = contentDisp?.split("filename=")[1]?.replace(/"/g, "") 
-//       || `${datasetId}_ground_truth.csv`;
-
-//     a.href = url;
+//     a.href = filePath;
 //     a.download = fileName;
 //     a.click();
-//     URL.revokeObjectURL(url);
 //   } catch (err) {
-//     alert("Error downloading ground truth.");
+//     console.error(err);
+//     alert("Ground truth not available for this dataset.");
 //   }
 // }
 
-// ---------------- Run Benchmark ----------------
-// async function handleRunBenchmark() {
-//   setIsRunning(true);
+async function handleDownloadGroundTruth() {
+  const fileName = `${ds.name}_refNetwork.csv`;
+  const filePath = `/ground-truth/${fileName}`;
 
-//   try {
-//     const res = await fetch(`${API_BASE}/benchmark/run`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ dataset_id: datasetId }),
-//     });
+  try {
+    const response = await fetch(filePath);
 
-//     if (!res.ok) {
-//       alert("Benchmark failed.");
-//       setIsRunning(false);
-//       return;
-//     }
+    if (!response.ok) {
+      alert(`Ground truth file for "${ds.name}" is not available.`);
+      return;
+    }
 
-//     const data = await res.json();
-//     setRunResult(data);
-//     setShowResult(true);
-//   } catch (err) {
-//     alert("Benchmark execution failed.");
-//   } finally {
-//     setIsRunning(false);
-//   }
-// }
+    // Check Content-Type to avoid downloading HTML
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.includes("text/csv")) {
+      alert(`Ground truth file for "${ds.name}" is not available.`);
+      return;
+    }
+
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    console.error("Error downloading ground truth file:", err);
+    alert("An error occurred while trying to download the ground truth file.");
+  }
+}
 
   return (
     <div className="mt-15 max-w-[1600px] mx-auto px-6 py-8">
@@ -1484,12 +634,6 @@ function handleDownloadGroundTruth() {
             >
               Download Ground Truth
             </Button2>
-
-            {/* <select onChange={(e) => setSelectedDataset(e.target.value)}>
-              <option value="">Select dataset</option>
-              <option value="hESC">hESC</option>
-            </select> */}
-
             <input
               type="checkbox"
               className="mb-3"
@@ -1522,37 +666,6 @@ function handleDownloadGroundTruth() {
                 <progress value={progress} max={100} />
               </div>
             )}
-
-            {/* {activeRun && (
-              <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-                <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl w-[420px]">
-                  <h2 className="text-lg font-semibold mb-2">Run Status</h2>
-
-                  <p>Status: {activeRun.status}</p>
-
-                  <progress
-                    className="w-full my-3"
-                    value={activeRun.progress}
-                    max={100}
-                  />
-
-                  {activeRun.metrics && (
-                    <div className="space-y-1 text-sm">
-                      <p>Edges: {activeRun.metrics.edges}</p>
-                      <p>Mean weight: {activeRun.metrics.mean_weight}</p>
-                      <p>Max weight: {activeRun.metrics.max_weight}</p>
-                    </div>
-                  )}
-
-                  <button
-                    onClick={() => setActiveRun(null)}
-                    className="mt-4 px-4 py-2 rounded bg-indigo-600 text-white"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            )} */}
           
           {activeRun && (
             <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">

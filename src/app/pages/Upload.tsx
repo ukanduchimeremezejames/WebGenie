@@ -1,4 +1,6 @@
-import { useState } from "react";import { Upload as UploadIcon, FileText, CheckCircle, Clock, AlertCircle, Download, Activity } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Upload as UploadIcon, FileText, CheckCircle, Clock, AlertCircle, Download, Activity } from 'lucide-react';
 import { mockDatasets } from "../components/mockData";
 
 const dynamicSteps = [
@@ -45,24 +47,6 @@ const recentJobs = [
 
 
 export function Upload() {
-  
-
-//   const handleFileUpload = (event) => {
-//   const file = event.target.files[0];
-//   if (!file) return;
-
-//   setUploadedFile(file);
-//   setDatasetList((prev) => [...prev, file.name]);
-
-//   // simulate saving to /datasets folder (frontend only)
-//   console.log("Saving file to /datasets/" + file.name);
-
-//   // Move pipeline forward
-//   setPipelineStep("validation");
-// };
-
-// Contains built-in datasets + user uploads
-
 
 const handleFileUpload = async (event) => {
   const file = event.target.files[0];
@@ -231,14 +215,6 @@ const handleValidateAndContinue = () => {
   setPipelineStep("analysis");
 };
 
-
-//   const handleValidateAndContinue = () => {
-//     setPipelineStep("analysis");
-//     alert("Dataset validated. Proceeding to Job Configuration step.");
-//     return;  
-// };
-
-
   return (
     <div id='upload' className="min-h-screen py-20 pb-0">
 
@@ -280,28 +256,6 @@ const handleValidateAndContinue = () => {
               );
             })}
           </div>
-
-          {/* <div className="flex items-center justify-between">
-            {pipelineSteps.map((step, index) => (
-              <div key={step.label} className="flex items-center flex-1">
-                <div className="flex flex-col items-center">
-                  <div
-                    className={`w-12 h-12 rounded-lg flex items-center justify-center mb-2 ${
-                      step.status === 'active'
-                        ? 'bg-primary text-white'
-                        : 'bg-muted text-muted-foreground'
-                    }`}
-                  >
-                    <step.icon className="w-6 h-6" />
-                  </div>
-                  <div className="text-sm font-medium">{step.label}</div>
-                </div>
-                {index < pipelineSteps.length - 1 && (
-                  <div className="flex-1 h-px bg-border mx-4 mt-[-20px]"></div>
-                )}
-              </div>
-            ))}
-          </div> */}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
@@ -338,9 +292,6 @@ const handleValidateAndContinue = () => {
                 <UploadIcon className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-sm mb-2">Drag and drop your file here</p>
                 <p className="text-xs text-muted-foreground mb-4">or click to browse</p>
-                {/* <button className="px-4 py-2 bg-primary text-white rounded-lg hover:opacity-90 transition-opacity">
-                  Choose File
-                </button> */}
                 <input
                   type="file"
                   className="hidden"
@@ -359,14 +310,6 @@ const handleValidateAndContinue = () => {
   <div className="mt-4 p-3 bg-accent/20 border rounded">
     <p className="text-sm font-medium">Uploaded File:</p>
     <p className="text-sm text-primary">{uploadedFile.name}</p>
-
-    {/* <button
-      onClick={() => setPipelineStep("analysis")}
-      className="mt-3 px-4 py-2 bg-secondary text-white rounded-lg"
-    >
-      Validate & Continue →
-    </button> */}
-
     <button
       onClick={handleValidateAndContinue}
       className="mt-3 px-4 py-2 bg-secondary text-white rounded-lg"
@@ -390,15 +333,7 @@ const handleValidateAndContinue = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Dataset</label>
-                  {/* <select className="w-full px-3 py-2 bg-input-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
-                  value={jobConfig.dataset}
-                  onChange={(e) =>
-                    setJobConfig({ ...jobConfig, dataset: e.target.value })}
-                  >
-                     {datasetList.map((ds) => (
-                        <option key={ds}>{ds}</option>
-                      ))}
-                  </select> */}
+                 
                   <select
                     value={jobConfig.dataset || ""}
                     onChange={(e) =>
@@ -467,27 +402,6 @@ const handleValidateAndContinue = () => {
                     }
                   />
                 </div>
-                {/* <button
-                  onClick={() => {
-                    const runId = "RUN-" + (runsHistory.length + 1).toString().padStart(3, "0");
-
-                    const newRun = {
-                      id: runId,
-                      name: jobConfig.runName || "Untitled_Run",
-                      dataset: jobConfig.dataset,
-                      algorithm: jobConfig.algorithm,
-                      status: "completed",
-                      timestamp: "now",
-                    };
-
-                    setRunsHistory([newRun, ...runsHistory]);
-                    setPipelineStep("comparison");
-                  }}
-                  className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
-                >
-                  Run Job →
-                </button> */}
-
                 <button
                   disabled={!isJobValid}
                   onClick={() => {
@@ -663,103 +577,11 @@ const handleValidateAndContinue = () => {
                 ))}
               </div>
             </div>
-
-            {/* Result Traceability */}
-            {/* <div id="report" className="p-6 rounded-lg border bg-card">
-              <h2 className="font-semibold mb-4">Result Traceability</h2>
-              <p className="text-sm text-muted-foreground mb-4">
-                Every result includes full provenance tracking:
-              </p>
-              <div className="space-y-3 text-sm">
-                <div className="flex gap-3">
-                  <div className="w-1 bg-primary rounded"></div>
-                  <div>
-                    <div className="font-medium text-primary mb-1">Dataset Version</div>
-                    <div className="text-muted-foreground">HESC_v2.1.0</div>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="w-1 bg-secondary rounded"></div>
-                  <div>
-                    <div className="font-medium text-secondary mb-1">Algorithm Version</div>
-                    <div className="text-muted-foreground">GENIE3 v1.12.0</div>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="w-1 bg-primary rounded"></div>
-                  <div>
-                    <div className="font-medium mb-1">Parameter Used</div>
-                    <div className="text-muted-foreground">nIrees=1000, mtry=sqrt</div>
-                  </div>
-                </div>
-              </div> 
-
-              {/* <div className="mt-4 pt-4 border-t">
-                <h3 className="font-semibold text-sm mb-2">Run Details</h3>
-                <button className="text-sm text-primary hover:underline">
-                  View full run detail
-                </button>
-              </div> 
-            </div>*/}
           </div>
         </div>
       </div>
-      {/* -------------------- LANDINGPAGE FOOTER -------------------- */}
-            {/* <footer className="bg-gray-900 text-gray-300 py-12 mt-10">
-              <div className="max-w-[1400px] mx-auto px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                  <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center">
-                        <Activity className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white">WebGenie</div>
-                        <div className="text-xs text-gray-400">Benchmarking Platform</div>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      Research-grade GRN inference benchmarking and visualization for evaluating
-                    gene regulatory network inference algorithms on single-cell data.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h5 className="text-white mb-4">Platform</h5>
-                    <ul className="space-y-2 text-sm">
-                      <li><a href="/dashboard" className="hover:text-white transition-colors">Dashboard</a></li>
-                      <li><a href="/datasets" className="hover:text-white transition-colors">Datasets</a></li>
-                      <li><a href="/compare" className="hover:text-white transition-colors">Algorithms</a></li>
-                      <li><a href="/upload" className="hover:text-white transition-colors">Upload</a></li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h5 className="text-white mb-4">Resources</h5>
-                    <ul className="space-y-2 text-sm">
-                      <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                      <li><a href="https://github.com/Murali-group/Beeline" className="hover:text-white transition-colors">GitHub</a></li>
-                      <li><a href="https://github.com/ukanduchimeremezejames/WebgenieDark" className="hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h5 className="text-white mb-4">Subscribe</h5>
-                    <p className="text-sm text-gray-400 mb-2">Get updates about new datasets and algorithms</p>
-                    <form className="flex gap-2">
-                      <input type="email" placeholder="Email" className="flex-1 p-2 rounded-lg border border-gray-700 bg-gray-800 text-white text-sm" />
-                      <button type="submit" className="px-4 py-2 bg-purple-600 rounded-lg text-white text-sm hover:bg-purple-700 transition-colors">Subscribe</button>
-                    </form>
-                  </div>
-                </div>
-                
-                <div className="border-t border-gray-700 pt-6 text-center text-sm">
-                  © 2026 WebGenie | Built on the BEELINE Platform. All rights reserved.
-                </div>
-              </div>
-            </footer> */}
-
-                  {/* Footer */}
+     
+      {/* Footer */}
       <footer className="border-t bg-background mt-12">
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
