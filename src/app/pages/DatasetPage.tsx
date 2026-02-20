@@ -527,8 +527,44 @@ async function pollTaskStatus(runId: string) {
 //   }
 // }
 
+// async function handleDownloadGroundTruth() {
+//   const fileName = `${ds.name}_refNetwork.csv`;
+//   const filePath = `/ground-truth/${fileName}`;
+
+//   try {
+//     const response = await fetch(filePath);
+
+//     if (!response.ok) {
+//       alert(`Ground truth file for "${ds.name}" is not available.`);
+//       return;
+//     }
+
+//     // Check Content-Type to avoid downloading HTML
+//     const contentType = response.headers.get("content-type") || "";
+//     if (!contentType.includes("text/csv")) {
+//       alert(`Ground truth file for "${ds.name}" is not available.`);
+//       return;
+//     }
+
+//     const blob = await response.blob();
+//     const url = URL.createObjectURL(blob);
+
+//     const a = document.createElement("a");
+//     a.href = url;
+//     a.download = fileName;
+//     document.body.appendChild(a);
+//     a.click();
+//     document.body.removeChild(a);
+
+//     URL.revokeObjectURL(url);
+//   } catch (err) {
+//     console.error("Error downloading ground truth file:", err);
+//     alert("An error occurred while trying to download the ground truth file.");
+//   }
+// }
+
 async function handleDownloadGroundTruth() {
-  const fileName = `${ds.name}_refNetwork.csv`;
+  const fileName = `${ds.name}_ground-truth.csv`;
   const filePath = `/ground-truth/${fileName}`;
 
   try {
@@ -539,15 +575,18 @@ async function handleDownloadGroundTruth() {
       return;
     }
 
-    // Check Content-Type to avoid downloading HTML
-    const contentType = response.headers.get("content-type") || "";
-    if (!contentType.includes("text/csv")) {
+    const blob = await response.blob();
+
+    // Check if blob is actually HTML (Vite dev fallback)
+    const text = await blob.text();
+    if (text.trim().startsWith('<!DOCTYPE html>') || text.trim().startsWith('<html')) {
       alert(`Ground truth file for "${ds.name}" is not available.`);
       return;
     }
 
-    const blob = await response.blob();
-    const url = URL.createObjectURL(blob);
+    // Convert text back to blob for download
+    const downloadBlob = new Blob([text], { type: "text/csv" });
+    const url = URL.createObjectURL(downloadBlob);
 
     const a = document.createElement("a");
     a.href = url;
@@ -558,8 +597,8 @@ async function handleDownloadGroundTruth() {
 
     URL.revokeObjectURL(url);
   } catch (err) {
-    console.error("Error downloading ground truth file:", err);
-    alert("An error occurred while trying to download the ground truth file.");
+    console.error(err);
+    alert(`Ground truth file for "${ds.name}" is not available.`);
   }
 }
 

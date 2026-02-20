@@ -167,7 +167,7 @@ export function Dashboard() {
   console.log("Downloading dataset:", dataset.name);
 
   // open link in a new tab
-  window.open("https://huggingface.co/cskokgibbs/datasets", "_blank");
+  window.open("https://zenodo.org/records/3701939", "_blank");
 };
 
 
